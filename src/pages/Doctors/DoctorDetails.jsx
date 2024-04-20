@@ -1,5 +1,4 @@
-import DoctorImg from "../../assets/images/doctor-img02.png";
-import starIcon from "../../assets/images/star.png";
+import starIcon from "../../assets/images/Star.png";
 import { useEffect, useState } from "react";
 import DoctorsAbout from "./DoctorsAbout";
 import Feedback from "./Feedback";
