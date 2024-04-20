@@ -1,17 +1,11 @@
 /* eslint-disable react/prop-types */
-import starIcon from "../../assets/images/star.png";
+import starIcon from "../../assets/images/Star.png";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
 const DoctorCard = ({ doctor }) => {
-  const {
-    name,
-    avgRating,
-    totalRating,
-    photo,
-    specialization,
-    experiences
-  } = doctor;
+  const { name, avgRating, totalRating, photo, specialization, experiences } =
+    doctor;
 
   // console.log(doctor);
 
