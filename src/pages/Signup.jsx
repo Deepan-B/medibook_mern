@@ -22,6 +22,7 @@ const Signup = () => {
   });
 
   const navigate = useNavigate();
+  // console.log(navigate);
 
   const handleFormDataChange = async (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
