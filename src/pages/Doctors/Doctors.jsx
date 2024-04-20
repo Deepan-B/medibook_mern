@@ -13,8 +13,6 @@ const Doctors = () => {
 
   const handleSearch = () => {
     setQuery(query.trim());
-
-    // console.log(query);
   }
 
   useEffect(() => {
@@ -34,7 +32,7 @@ const Doctors = () => {
           <div className="max-w-[570px] mt-[30px] mx-auto bg-[#0066ff2c] rounded-md flex items-center justify-between">
             <input
               type="search"
-              className="py-4 pl-4 pr-2 bg-transparent w-full focus:outline-none cursor-pointer placeholder:text-textColor"
+              className="text-sm px-2 py-2 md:py-4 md:pl-4 md:pr-2 bg-transparent w-full focus:outline-none cursor-pointer placeholder:text-textColor"
               placeholder="Search Doctor by name or specialization"
               onChange={e=> setQuery(e.target.value)}
             />

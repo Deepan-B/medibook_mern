@@ -140,7 +140,7 @@ const Profile = ({ user }) => {
         <div className="mb-5 flex items-center gap-3">
           {formData.photo && (
             <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
-              <img src={formData.photo} alt="" className=" w-full rounded-full" />
+              <img src={formData.photo} alt="" className=" max:w-[50px] max:h-[50px] object-contain rounded-full" />
             </figure>
           )}
 

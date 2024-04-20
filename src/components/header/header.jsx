@@ -94,11 +94,11 @@ function Header() {
                   }`}
                 >
                   {user.photo ? (
-                    <figure className="w-[35px] h-[35px] rounded-full">
+                    <figure className="w-[35px] h-[35px] rounded-full border-2">
                       <img
                         src={user.photo}
                         alt="user"
-                        className="w-full rounded-full cursor-pointer"
+                        className="max-w-[33px] max-h-[33px] object-contain rounded-full cursor-pointer m-auto"
                       />
                     </figure>
                   ) : (

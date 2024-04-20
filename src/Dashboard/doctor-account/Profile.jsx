@@ -9,7 +9,6 @@ import { authContext } from "../../context/AuthContext.jsx";
 const Profile = ({ doctorData }) => {
   const { token } = useContext(authContext);
 
-
   const [formData, setFormData] = useState({
     name: "",
     email: doctorData?.email ? doctorData?.email : "",
@@ -40,9 +39,8 @@ const Profile = ({ doctorData }) => {
       qualifications: doctorData?.qualifications,
       experiences: doctorData?.experiences,
       timeSlots: doctorData?.timeSlots,
-    })
-  } , [doctorData])
-
+    });
+  }, [doctorData]);
 
   const handleFormDataChange = async (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -80,9 +78,9 @@ const Profile = ({ doctorData }) => {
         method: "PUT",
         headers: {
           "content-type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       const result = await res.json();
@@ -144,8 +142,6 @@ const Profile = ({ doctorData }) => {
       position: "",
     });
   };
-
-  
 
   const handleExperienceChange = (event, index) => {
     handleResuableInputChangeFunction("experiences", index, event);
@@ -243,7 +239,7 @@ const Profile = ({ doctorData }) => {
         </div>
 
         <div className="mb-5">
-          <div className="grid grid-cols-3 gap-5 mb-[30px]">
+          <div className="grid grid-cols-1  lg:grid-cols-3 gap-5 mb-[30px]">
             <div>
               <p className="form__label">Gender</p>
               <select
@@ -293,7 +289,7 @@ const Profile = ({ doctorData }) => {
           {formData.qualifications?.map((item, index) => (
             <div key={index}>
               <div>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="">
                     <p className="form__label">Starting Date</p>
                     <input
@@ -315,7 +311,7 @@ const Profile = ({ doctorData }) => {
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-5 mt-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
                   <div className="">
                     <p className="form__label">Degree</p>
                     <input
@@ -360,7 +356,7 @@ const Profile = ({ doctorData }) => {
           {formData.experiences?.map((item, index) => (
             <div key={index}>
               <div>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="">
                     <p className="form__label">Starting Date</p>
                     <input
@@ -382,7 +378,7 @@ const Profile = ({ doctorData }) => {
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-5 mt-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
                   <div className="">
                     <p className="form__label">Positions</p>
                     <input
@@ -503,7 +499,7 @@ const Profile = ({ doctorData }) => {
               <img
                 src={formData.photo}
                 alt=""
-                className=" w-full rounded-full"
+                className=" max-w-[50px] max-h-[50px] object-contain rounded-full"
               />
             </figure>
           )}

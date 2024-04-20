@@ -17,8 +17,6 @@ const MyAccount = () => {
     error,
   } = useGetProfile(`${BASE_URL}/users/profile/me`);
 
-  // console.log("hi" ,userData);
-
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
@@ -73,13 +71,13 @@ const MyAccount = () => {
             </div>
 
             <div className="md:col-span-2 md:px-[30px]">
-              <div className="">
+              <div className="flex justify-center">
                 <button
                   onClick={() => setTab("bookings")}
                   className={`${
                     tab === "bookings" &&
                     "bg-primaryColor text-white font-normal"
-                  } p-2 mr-5 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border-solid border-2 border-primaryColor`}
+                  } p-2 mr-5 px-5 rounded-md text-headingColor font-semibold text-[12px] md:text-[16px] leading-4 md:leading-7 border-solid border-2 border-primaryColor`}
                 >
                   My Bookings
                 </button>
@@ -88,7 +86,7 @@ const MyAccount = () => {
                   className={` ${
                     tab === "settings" &&
                     "bg-primaryColor text-white font-normal"
-                  }   p-2 mr-5 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border-solid border-2 border-primaryColor`}
+                  }   p-2 mr-5 px-5 rounded-md text-headingColor font-semibold text-[12px] md:text-[16px] leading-4 md:leading-7 border-solid border-2 border-primaryColor`}
                 >
                   Profile Settings
                 </button>
