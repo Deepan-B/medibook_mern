@@ -165,7 +165,7 @@ const Signup = () => {
                     <img
                       src={PreviewURL}
                       alt=""
-                      className=" max:w-[50px] max:h-[50px] object-contain rounded-full"
+                      className=" max-w-[50px] max-h-[50px] object-contain rounded-full"
                     />
                   </figure>
                 )}
