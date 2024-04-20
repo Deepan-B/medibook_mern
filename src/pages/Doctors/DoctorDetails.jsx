@@ -8,7 +8,6 @@ import useFetchData from "../../hooks/useFetchData";
 import Loader from "../../components/Loader/Loading.jsx";
 import Error from "../../components/Error/Error.jsx";
 import { useParams } from "react-router-dom";
-
 const DoctorDetails = () => {
   const [tab, setTab] = useState("about");
   const [width, setWidth] = useState(window.innerWidth);
