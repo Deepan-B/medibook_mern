@@ -3,14 +3,14 @@ import starIcon from "../../assets/images/Star.png";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
-const DoctorCard = ({ doctor }) => {
+const DoctorCard = ({ doctor , key }) => {
   const { name, avgRating, totalRating, photo, specialization, experiences } =
     doctor;
 
   // console.log(doctor);
 
   return (
-    <div className="p-3 lg:p-5">
+    <div key={key}  className="p-3 lg:p-5">
       <div>
         <img src={photo} alt="" className="mx-auto" />
       </div>

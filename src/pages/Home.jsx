@@ -1,4 +1,4 @@
-import heroImg1 from "../assets/images/hero-img01.jpg";
+import heroImg1 from "../assets/images/hero-img01.png";
 import heroImg2 from "../assets/images/hero-img02.png";
 import heroImg3 from "../assets/images/hero-img03.png";
 import icon01 from "../assets/images/icon01.png";
@@ -7,7 +7,7 @@ import icon03 from "../assets/images/icon03.png";
 import featureImg from "../assets/images/feature-img.png";
 import videoIcon from "../assets/images/video-icon.png";
 import avatarIcon from "../assets/images/avatar-icon.png";
-import faqImg from "../assets/images/faq-img.jpg";
+import faqImg from "../assets/images/faq-img.png";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import About from "../components/About/About";
@@ -65,9 +65,9 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="flex gap-[30px] justify-end">
+              <div className="flex gap-[20px] md:gap-[30px] justify-end">
                 <div>
-                  <img className="w-full" src={heroImg1} alt="" />
+                  <img className="w-full mt-[40px]" src={heroImg1} alt="" />
                 </div>
                 <div className="mt-[30px]">
                   <img src={heroImg2} alt="" className="w-full mb-[30px] " />
@@ -248,20 +248,21 @@ const Home = () => {
         {/* faq section */}
         <section className="mt-[30px]">
           <div className="container">
-            <div className="flex justify-between gap-[50px] lg:gap-0">
-              <div className="w-1/2 hidden md:block">
-                <img
-                  src={faqImg}
-                  alt=""
-                  className="mt-[100px] md:mt-[50px] lg:mt-0"
-                />
-              </div>
+            <div className="flex flex-col justify-between gap-[20px] lg:gap-0">
+              
 
-              <div className="md:ml-[40px] md:w-1/2">
                 <h2 className="heading">
                   Most questions by our beloved patients
                 </h2>
+              <div className="lg:ml-[40px] flex  flex-col md:flex-row justify-evenly items-center">
 
+                <div className="max-w-sm md:block ">
+                <img
+                  src={faqImg}
+                  alt=""
+                  className="max-w-1/3 mt-[10px] md:mt-[50px] lg:mt-0"
+                />
+              </div>
                 <FaqList />
               </div>
             </div>

@@ -19,6 +19,8 @@ const DoctorDetails = () => {
     error,
   } = useFetchData(`${BASE_URL}/doctors/${id}`);
 
+  
+
   if (doctor) {
     const {
       name,

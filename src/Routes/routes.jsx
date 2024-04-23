@@ -6,7 +6,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Contact from "../pages/Contact";
 import Services from "../pages/Services";
-
+import CheckoutSchema from "../pages/CheckoutSchema.jsx";
 import Dashboard from "../Dashboard/doctor-account/Dashboard";
 import ProtectedRoutes from "./ProtectedRoutes";
 import MyAccount from "../Dashboard/user-account/MyAccount.jsx";
@@ -22,6 +22,7 @@ const routes = () => {
       <Route path="/register" element={<Signup />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/checkout-success" element={<CheckoutSchema />} />
       <Route
         path="/users/profile/me"
         element={

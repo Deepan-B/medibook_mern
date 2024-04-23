@@ -1,7 +1,39 @@
+/* eslint-disable react/prop-types */
 import convertTime from "../../Utils/covertTime";
-const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
+import { BASE_URL } from "./../../../config.js";
+import { authContext } from "../../context/AuthContext";
+import { useContext } from "react";
+import { toast } from "react-toastify";
 
-  // console.log(ticketPrice);
+const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
+  const { token } = useContext(authContext);
+
+  const bookingHandler = async () => {
+    try {
+      const res = await fetch(
+        `${BASE_URL}/bookings/checkout-session/${doctorId}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const data = await res.json();
+      console.log(data);
+
+      if (!res.ok) {
+        throw new Error(data.message + "Please try again");
+      }
+
+      if (data.session.url) {
+        window.location.href = data.session.url;
+      }
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
 
   return (
     <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
@@ -24,14 +56,17 @@ const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
                 {item.day.charAt(0).toUpperCase() + item.day.slice(1)}
               </p>
               <p className="text-[15px] leading-6 text-textColor font-semibold">
-                {convertTime(item.startingTime)} - {convertTime(item.endingTime)}
+                {convertTime(item.startingTime)} -{" "}
+                {convertTime(item.endingTime)}
               </p>
             </li>
           ))}
         </ul>
       </div>
 
-      <button className="btn px-2 w-full rounded-lg">Book Appoinment</button>
+      <button onClick={bookingHandler} className="btn px-2 w-full rounded-lg">
+        Book Appoinment
+      </button>
     </div>
   );
 };
