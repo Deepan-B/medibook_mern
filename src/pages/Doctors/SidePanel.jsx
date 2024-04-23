@@ -21,6 +21,7 @@ const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
       );
 
       const data = await res.json();
+      
       console.log(data);
 
       if (!res.ok) {
