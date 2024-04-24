@@ -1,10 +1,11 @@
 import signupImg from "../assets/images/signup.gif";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import uploadCloudinary from "../Utils/uploadCloudinary";
 import { BASE_URL } from "../../config";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
+import docimg from "../assets/images/feature-img.png";
 
 const Signup = () => {
   const [PreviewURL, setPreviewURL] = useState("");
@@ -22,7 +23,6 @@ const Signup = () => {
   });
 
   const navigate = useNavigate();
-  // console.log(navigate);
 
   const handleFormDataChange = async (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,12 +31,45 @@ const Signup = () => {
   const handleFileDataChange = async (event) => {
     const file = event.target.files[0];
 
-    const data = await uploadCloudinary(file);
-
-    setPreviewURL(data.url);
-    setSelectedFile(data.url);
-    setFormData({ ...formData, photo: data.url });
+    if (file) {
+      const data = await uploadCloudinary(file);
+      setPreviewURL(data.url);
+      setSelectedFile(data.url);
+      setFormData({ ...formData, photo: data.url });
+    } else {
+      fetch(docimg)
+        .then((response) => response.blob())
+        .then(async (blob) => {
+          const file = new File([blob], "default.png", { type: "image/png" });
+          const data2 = await uploadCloudinary(file);
+          setPreviewURL(data2.url);
+          setSelectedFile(data2.url);
+          setFormData({ ...formData, photo: data2.url });
+        })
+        .catch((error) => {
+          console.error("Error fetching file:", error);
+        });
+    }
   };
+
+  useEffect(() => {
+    if (!formData.photo) {
+      fetch(docimg)
+        .then((response) => response.blob())
+        .then(async (blob) => {
+          const file = new File([blob], "default.png", { type: "image/png" });
+          const data2 = await uploadCloudinary(file);
+          setPreviewURL(data2.url);
+          setSelectedFile(data2.url);
+          setFormData({ ...formData, photo: data2.url });
+        })
+        .catch((error) => {
+          console.error("Error fetching file:", error);
+        });
+    }
+  }, []); // Empty dependency array ensures this effect runs only once on mount
+  
+  
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -52,6 +85,7 @@ const Signup = () => {
       });
 
       const { message } = await res.json();
+
 
       if (!res.ok) {
         throw new Error(message);
@@ -179,6 +213,7 @@ const Signup = () => {
                     accept=".jpg , .png , .jpeg"
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
                     onChange={handleFileDataChange}
+                    src={docimg}
                   />
 
                   <label

@@ -2,14 +2,12 @@ import { Link } from "react-router-dom";
 
 const CheckoutSchema = () => {
   return (
-    <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
-      <div className="mt-[30px]">
-        <p className="text__para mt-0 font-semibold text-headingColor">
-          The Payment is Successful .Have a nice day.
+    <div className="flex flex-col mt-[20%] mb-[20%]">
+        <p className="text-5xl text-center ">
+        The Payment is Successful.
+        Awaiting for your arrival.
         </p>
-      </div>
-
-      <Link to='/home' className="btn">Go back to home</Link>
+        <Link to='/home' className=" text-base mx-auto mt-[50px] text-white bg-primaryColor w-40 h-9 px-5 py-2  rounded-full text-center">Go back to home</Link>
     </div>
   );
 };
