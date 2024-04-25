@@ -67,7 +67,7 @@ const Home = () => {
 
               <div className="flex gap-[20px] md:gap-[30px] justify-end">
                 <div>
-                  <img className="w-full mt-[40px]" src={heroImg1} alt="" />
+                  <img className="w-full mt-[70px] lg:mt-[140px]" src={heroImg1} alt="" />
                 </div>
                 <div className="mt-[30px]">
                   <img src={heroImg2} alt="" className="w-full mb-[30px] " />
@@ -223,7 +223,7 @@ const Home = () => {
                   <div className="flex items-center gap-[6px] lg:gap-[10px] mt-2 ">
                     <img src={avatarIcon} alt="" />
                     <h4 className="text-[10px] leading-3 lg:text-[16px] lg:leading-[22px] font-[700] text-headingColor">
-                      Arul Kokilan
+                      Mitchelle Stark
                     </h4>
                   </div>
                 </div>
